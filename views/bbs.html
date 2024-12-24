@@ -102,32 +102,8 @@
       />
       <label for="seed">シード</label>
       <input type="text" id="seed" name="seed" value="" required />
+      <button id="submit">送信する</button>
       
-      // メッセージ送信
-      function sendMessage(name, seed, channel, message) {
-      if (name=='' || seed=='' || channel=='' || message=='') {
-        console.warn('Invalid argument(s).')
-      } else {
-        message = btoa(unescape(encodeURIComponent(message)));
-        $.ajax({
-          type: 'GET',
-          url: '/bbs/result',
-          data: {
-            'name': name,
-            'seed': seed,
-            'message': message,
-            'channel': channel
-          }
-        });
-        console.log(message, btoa(message))
-      }
-    }
-      <br />
-      スピーカー以上のメッセージのみ表示<input
-        type="checkbox"
-        id="filter"
-        name="verify"
-      />
       <h2>投稿</h2>
     </form>
 
