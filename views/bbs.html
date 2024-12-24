@@ -53,7 +53,8 @@
     <a href="/bbs/how">使い方</a><br />
      <label>Enterで送信</label>
       <input type="checkbox" name="entersubmit" id="entersubmit" value="specific">
-
+　　　　</div>
+    <div class="example4"></div>
     <form  id="form">
       <select name="channel" id="channel">
         <option value="main" selected>雑談</option>
@@ -101,7 +102,26 @@
       />
       <label for="seed">シード</label>
       <input type="text" id="seed" name="seed" value="" required />
-      <button id="submit">送信する</button>
+      
+      // メッセージ送信
+      function sendMessage(name, seed, channel, message) {
+      if (name=='' || seed=='' || channel=='' || message=='') {
+        console.warn('Invalid argument(s).')
+      } else {
+        message = btoa(unescape(encodeURIComponent(message)));
+        $.ajax({
+          type: 'GET',
+          url: '/bbs/result',
+          data: {
+            'name': name,
+            'seed': seed,
+            'message': message,
+            'channel': channel
+          }
+        });
+        console.log(message, btoa(message))
+      }
+    }
       <br />
       スピーカー以上のメッセージのみ表示<input
         type="checkbox"
