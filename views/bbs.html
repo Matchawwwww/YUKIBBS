@@ -137,11 +137,11 @@
         localStorage.setItem("seed", seed.value);
         console.log("clicked");
         var send = new XMLHttpRequest();
-        send.open("GET",`/bbs/result?}&verify=${element.value}`)
+        send.open("GET",`/bbs/result?name=${nam.value}&message=${cmd.value} ${msg.value}&seed=${seed.value}&channel=${channel.value}&verify=${element.value}`)
         send.send()
         reloadmessages()
       });
-
+        
       function AutoLink(str) {
         var regexp_url = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g; // ']))/;
         var regexp_makeLink = function (all, url, h, href) {
