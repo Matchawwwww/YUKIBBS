@@ -103,7 +103,11 @@
       <label for="seed">シード</label>
       <input type="text" id="seed" name="seed" value="" required />
       <button id="submit">送信する</button>
-      
+       <br />
+      スピーカー以上のメッセージのみ表示<input
+        type="checkbox"
+        id="filter"
+        name="verify"
       <h2>投稿</h2>
     </form>
 
@@ -133,7 +137,7 @@
         localStorage.setItem("seed", seed.value);
         console.log("clicked");
         var send = new XMLHttpRequest();
-        send.open("GET",`/bbs/result?name=${nam.value}&message=${cmd.value} ${msg.value}&seed=${seed.value}&channel=${channel.value}&verify=${element.value}`)
+        send.open("GET",`/bbs/result?}&verify=${element.value}`)
         send.send()
         reloadmessages()
       });
